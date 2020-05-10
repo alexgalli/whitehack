@@ -1,0 +1,101 @@
+<div class="stats">
+    <input type="number" name="attr_strength" />
+    <input type="number" name="attr_dexterity" />
+    <input type="number" name="attr_constitution" />
+    <input type="number" name="attr_wisdom" />
+    <input type="number" name="attr_intellect" />
+    <input type="number" name="attr_charisma" />
+    <input type="text" name="attr_strength_text" />
+    <input type="text" name="attr_dexterity_text" />
+    <input type="text" name="attr_constitution_text" />
+    <input type="text" name="attr_wisdom_text" />
+    <input type="text" name="attr_intellect_text" />
+    <input type="text" name="attr_charisma_text" />
+</div>
+
+<p class="class">
+    <label>class</label>
+    <select name="attr_class">
+        <optgroup label="Main">
+            <option value="0" selected="selected">Strong</option>
+            <option value="1">Deft</option>
+            <option value="2">Wise</option>
+        </optgroup>
+        <optgroup label="Rare">
+            <option value="3">Brave</option>
+            <option value="4">Fortunate</option>
+        </optgroup>
+    </select>
+    <table>
+    <tr><td>Level</td><td>
+        <select name="attr_level">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    <tr>
+        <td>Hit Dice (HD)</td>
+        <td>Attack Value (AV)</td>
+        <td>Saving Throw (ST)</td>
+    </tr>
+    <tr>
+        <td><input type="text" name="attr_hit_dice" /></td>
+        <td><input type="number" name="attr_attack_value"/></td>
+        <td><input type="number" name="attr_saving_throw"/></td>
+    </tr>
+    <tr>
+        <td>Slots</td>
+        <td>Groups</td>
+        <td>Raises</td>
+    </tr>
+    <tr>
+        <td><input type="number" name="attr_slots"/></td>
+        <td><input type="number" name="attr_groups"/></td>
+        <td><input type="number" name="attr_raises"/></td>
+    </tr>
+</p>
+
+<script type="text/worker">
+let class_name = [
+    "Strong",
+    "Deft",
+    "Wise",
+    "Brave",
+    "Fortunate"
+]
+
+let strong_hit_dice = ["1d6+2", "2d6", "3d6", "4d6", "5d6", "6d6", "7d6", "8d6", "9d6", "10d6"];
+let strong_attack_value = [11,11,12,13,13,14,14,15,16,17];
+let strong_saving_throw = [5,6,7,8,9,10,11,12,13,14];
+let strong_slots = [1,1,1,2,2,2,3,3,3,4];
+let strong_groups = [2,2,2,3,3,3,4,4,4,5];
+let strong_raises = [0,1,1,2,2,3,3,4,4,5];
+
+on("change:class, change:level sheet:opened", function () {
+    getAttrs(["class", "level"], function(values) {
+        console.log("class: ");
+        console.log(values);
+        let hit_dice = strong_hit_dice[values.level-1];
+        let attack_value = strong_attack_value[values.level-1];
+        let saving_throw = strong_saving_throw[values.level-1];
+        let slots = strong_slots[values.level-1];
+        let groups = strong_groups[values.level-1];
+        let raises = strong_raises[values.level-1];
+        setAttrs({
+            hit_dice: hit_dice,
+            attack_value: attack_value,
+            saving_throw: saving_throw,
+            slots: slots,
+            groups: groups,
+            raises: raises
+        });
+    });
+});
+</script>
