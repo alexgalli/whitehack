@@ -1,0 +1,110 @@
+.charsheet {
+  background-image: url(https://raw.githubusercontent.com/alexgalli/whitehack/master/imgs/whitehack_background.png);
+  background-color: white;
+  position: relative;
+  
+  background-repeat: no-repeat;
+  background-size: 65%;
+  height: 850px;
+  width: 837px;
+  border: 1px solid black;
+}
+
+.charsheet input[type=number] {
+  font-size: 16px;
+}
+
+/* SECONDARY STATS */
+.sheet-secondary {
+    position: absolute;
+    left: 308px;
+    top: 270px;
+}
+.sheet-secondary input[type=number] {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    padding-right: 0px;
+}
+.sheet-secondary .sheet-AV { top: 0px; }
+.sheet-secondary .sheet-ST { top: 70px; }
+.sheet-secondary .sheet-AC { top: 140px; }
+.sheet-secondary .sheet-HP { top: 215px; }
+.sheet-secondary .sheet-MV { top: 280px; }
+
+/* MAIN */
+
+.sheet-main {
+  position: absolute;
+  left: 15px;
+  top: 50px;
+}
+
+.sheet-main textarea, .sheet-main input {
+  position: absolute;
+  left: 0px;
+  width: 265px;
+  resize: none;
+}
+
+.sheet-identity { top: 0px; height: 50px;}
+.sheet-special { top: 235px; height: 545px; }
+.sheet-weapon1 { top: 130px; height: 30px; }
+.sheet-weapon2 { top: 172px; height: 30px; }
+
+
+/* LEVEL */
+
+.sheet-progression {
+  position: relative;
+  left: 440px;
+  top: 13px;
+  height: 100px;
+  width: 183px;
+}
+
+.sheet-progression input, .sheet-progression select {
+  position: absolute;
+  left: 0;
+  height: 22px;
+}
+.sheet-progression select { height: 22px; }
+.sheet-class { top: 2px; width: 95px;}
+.sheet-level { top: 26px; width: 40px; }
+.sheet-languages { top: 51px; width: 188px; }
+input.sheet-experience { top: 26px; width: 235px; left: 50px; }
+
+/* STATS */
+
+.sheet-stats {
+  position: relative;
+  left: 355px;
+  top: 180px;
+  width: 0;
+}
+
+.sheet-stats input {
+  position: absolute;
+  left: 70px;
+}
+
+.sheet-stats textarea {
+  position: absolute;
+  left: 0px;
+  height: 60px;
+  width: 260px;
+  resize: none;
+}
+
+.sheet-strength { top: 4px; }
+.sheet-dexterity { top: 112px; }
+.sheet-constitution { top: 222px; }
+.sheet-intellect { top: 332px; }
+.sheet-wisdom { top: 440px; }
+.sheet-charisma { top: 550px; }
+.sheet-strength-text { top: 34px; }
+.sheet-dexterity-text { top: 142px; }
+.sheet-constitution-text { top: 252px; }
+.sheet-intellect-text { top: 362px; }
+.sheet-wisdom-text { top: 470px; }
+.sheet-charisma-text { top: 579px; }
