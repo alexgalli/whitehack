@@ -10,27 +10,21 @@
   border: 1px solid black;
 }
 
+/* INPUTS */
+
 .charsheet input[type=number] {
-  font-size: 16px;
+  font-size: 18px;
+  text-align: center;
 }
 
-/* SECONDARY STATS */
-.sheet-secondary {
-    position: absolute;
-    left: 308px;
-    top: 270px;
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
-.sheet-secondary input[type=number] {
-    position: absolute;
-    left: 0;
-    width: 40px;
-    padding-right: 0px;
+input[type=number]:not(.sheet-HP) {
+  -moz-appearance: textfield;
 }
-.sheet-secondary .sheet-AV { top: 0px; }
-.sheet-secondary .sheet-ST { top: 70px; }
-.sheet-secondary .sheet-AC { top: 140px; }
-.sheet-secondary .sheet-HP { top: 215px; }
-.sheet-secondary .sheet-MV { top: 280px; }
 
 /* MAIN */
 
@@ -68,11 +62,11 @@
   left: 0;
   height: 22px;
 }
-.sheet-progression select { height: 22px; }
-.sheet-class { top: 2px; width: 95px;}
+.sheet-progression select { height: 22px; padding: 0; }
+.sheet-class { top: 2px; width: 95px; }
 .sheet-level { top: 26px; width: 40px; }
 .sheet-languages { top: 51px; width: 188px; }
-input.sheet-experience { top: 26px; width: 235px; left: 50px; }
+input.sheet-experience { top: 26px; width: 235px; left: 50px; font-size: 15px; }
 
 /* STATS */
 
@@ -83,9 +77,14 @@ input.sheet-experience { top: 26px; width: 235px; left: 50px; }
   width: 0;
 }
 
-.sheet-stats input {
+.sheet-stats input[type=number] {
   position: absolute;
-  left: 70px;
+  left: 72px;
+  padding: 0px;
+  width: 38px;
+  height: 28px;
+  
+  font-size: 22px;
 }
 
 .sheet-stats textarea {
@@ -97,9 +96,9 @@ input.sheet-experience { top: 26px; width: 235px; left: 50px; }
 }
 
 .sheet-strength { top: 4px; }
-.sheet-dexterity { top: 112px; }
-.sheet-constitution { top: 222px; }
-.sheet-intellect { top: 332px; }
+.sheet-dexterity { top: 113px; }
+.sheet-constitution { top: 223px; }
+.sheet-intellect { top: 331px; }
 .sheet-wisdom { top: 440px; }
 .sheet-charisma { top: 550px; }
 .sheet-strength-text { top: 34px; }
@@ -108,3 +107,22 @@ input.sheet-experience { top: 26px; width: 235px; left: 50px; }
 .sheet-intellect-text { top: 362px; }
 .sheet-wisdom-text { top: 470px; }
 .sheet-charisma-text { top: 579px; }
+
+/* SECONDARY STATS */
+.sheet-secondary {
+    position: absolute;
+    left: 315px;
+    top: 270px;
+}
+.sheet-secondary input[type=number] {
+    position: absolute;
+    left: 0;
+    width: 30px;
+    padding: 1px;
+    padding-top: 2px;
+}
+.sheet-secondary .sheet-AV { top: 0px; }
+.sheet-secondary .sheet-ST { top: 70px; }
+.sheet-secondary .sheet-AC { top: 140px; }
+.sheet-secondary .sheet-HP { top: 215px; }
+.sheet-secondary .sheet-MV { top: 280px; }

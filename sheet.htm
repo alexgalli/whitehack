@@ -1,4 +1,4 @@
-  <div class="stats">
+<div class="stats">
     <input class="strength" type="number" name="attr_strength" />
     <input class="dexterity" type="number" name="attr_dexterity" />
     <input class="constitution" type="number" name="attr_constitution" />
@@ -45,8 +45,8 @@
 <div class="main">
     <textarea class="identity" name="attr_identity"></textarea>
     <textarea class="special" name="attr_special"></textarea>
-    <input class="weapon1" name="attr_weapon1" />
-    <input class="weapon2" name="attr_weapon2" />
+    <input class="weapon1" type="text" name="attr_weapon_one" />
+    <input class="weapon2" type="text" name="attr_weapon_two" />
 </div>
 
 <div class="secondary">
@@ -56,7 +56,6 @@
     <input class="HP" type="number" name="attr_hit_points"/>
     <input class="MV" type="number" name="attr_move"/>
 </div>
-
 
 <script type="text/worker">
 let class_name = [
