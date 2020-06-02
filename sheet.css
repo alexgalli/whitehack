@@ -34,7 +34,7 @@ input[type=number]:not(.sheet-HP) {
   top: 50px;
 }
 
-.sheet-main textarea, .sheet-main input {
+.sheet-main textarea, .sheet-main input, .sheet-main select {
   position: absolute;
   left: 0px;
   width: 265px;
@@ -42,9 +42,19 @@ input[type=number]:not(.sheet-HP) {
 }
 
 .sheet-identity { top: 0px; height: 50px;}
-.sheet-special { top: 235px; height: 545px; }
+.sheet-special { top: 235px; height: 380px; }
 .sheet-weapon1 { top: 130px; height: 30px; }
 .sheet-weapon2 { top: 172px; height: 30px; }
+
+.sheet-main .sheet-label { width: 130px; text-align: center; font-size: 18px; }
+.sheet-main .sheet-value { width: 30px; margin-top: 38px; }
+.sheet-main input.sheet-value {  margin-left: 40px; width: 50px; }
+.sheet-main select.sheet-value { margin-left: 40px; width: 50px; height: 30px; }
+
+.sheet-main .sheet-row1 { top: 640px; }
+.sheet-main .sheet-row2 { top: 720px; }
+.sheet-main .sheet-row2 { top: 720px; }
+.sheet-main .sheet-col2 { left: 144px; }
 
 
 /* LEVEL */
