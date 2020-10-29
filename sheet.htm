@@ -1,120 +1,91 @@
- <div class="stats">
-    <input class="strength" type="number" name="attr_strength" />
-    <input class="dexterity" type="number" name="attr_dexterity" />
-    <input class="constitution" type="number" name="attr_constitution" />
-    <input class="wisdom" type="number" name="attr_wisdom" />
-    <input class="intellect" type="number" name="attr_intellect" />
-    <input class="charisma" type="number" name="attr_charisma" />
-    
-    <textarea class="strength-text" type="text" name="attr_strength_text"></textarea>
-    <textarea class="dexterity-text" type="text" name="attr_dexterity_text"></textarea>
-    <textarea class="constitution-text" type="text" name="attr_constitution_text"></textarea>
-    <textarea class="wisdom-text" type="text" name="attr_wisdom_text"></textarea>
-    <textarea class="intellect-text" type="text" name="attr_intellect_text"></textarea>
-    <textarea class="charisma-text" type="text" name="attr_charisma_text"></textarea>
+<div>
+    <button type="action" name="act_whitehack" >Character</button>
+    <button type="action" name="act_inventory" >Inventory</button>
 </div>
 
-<div class="progression">
-    <select class="class" name="attr_class">
-        <optgroup label="Main">
-            <option value="0" selected="selected">Strong</option>
-            <option value="1">Deft</option>
-            <option value="2">Wise</option>
-        </optgroup>
-        <optgroup label="Rare">
-            <option value="3">Brave</option>
-            <option value="4">Fortunate</option>
-        </optgroup>
-    </select>
-    <select class="level" name="attr_level">
-        <option value="1" selected="selected">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-    </select>
-    <input class="languages" type="text" name="attr_languages" />
-    <input class="experience" type="number" name="attr_experience" />
-</div>
-
-<div class="main">
-    <textarea class="identity" name="attr_identity"></textarea>
-    <input class="weapon1" type="text" name="attr_weapon_one" />
-    <input class="weapon2" type="text" name="attr_weapon_two" />
-    <textarea class="special" name="attr_special"></textarea>
-    <input class="row1 col1 label" type="text" name="attr_label_one" />
-    <input class="row1 col2 label" type="text" name="attr_label_two" />
-    <input class="row2 col1 label" type="text" name="attr_label_three" />
-    <input class="row2 col2 label" type="text" name="attr_label_four" />
-    <input class="row1 col1 value" type="number" name="attr_value_one" />
-    <input class="row1 col2 value" type="number" name="attr_value_two" />
-    <select class="row2 col1 value" name="attr_value_three">
-        <option value="0" selected="selected"></option>
-        <option value="d4">d4</option>
-        <option value="d6">d6</option>
-        <option value="d8">d8</option>
-        <option value="d10">d10</option>
-        <option value="d12">d12</option>
-        <option value="d20">d20</option>
-    </select>
-    <select class="row2 col2 value" name="attr_value_four">
-        <option value="0" selected="selected"></option>
-        <option value="d4">d4</option>
-        <option value="d6">d6</option>
-        <option value="d8">d8</option>
-        <option value="d10">d10</option>
-        <option value="d12">d12</option>
-        <option value="d20">d20</option>
-    </select>
-</div>
-
-<div class="secondary">
-    <input class="AV" type="number" name="attr_attack_value"/>
-    <input class="ST" type="number" name="attr_saving_throw"/>
-    <input class="AC" type="number" name="attr_armor_class"/>
-    <input class="HP" type="number" name="attr_hit_points"/>
-    <input class="MV" type="number" name="attr_move"/>
-</div>
+<input type='hidden' class='sheet-tabstoggle' name='attr_sheetTab'  value='whitehack'  />
 
 <script type="text/worker">
-let class_name = [
-    "Strong",
-    "Deft",
-    "Wise",
-    "Brave",
-    "Fortunate"
-]
-
-let strong_hit_dice = ["1d6+2", "2d6", "3d6", "4d6", "5d6", "6d6", "7d6", "8d6", "9d6", "10d6"];
-let strong_attack_value = [11,11,12,13,13,14,14,15,16,17];
-let strong_saving_throw = [5,6,7,8,9,10,11,12,13,14];
-let strong_slots = [1,1,1,2,2,2,3,3,3,4];
-let strong_groups = [2,2,2,3,3,3,4,4,4,5];
-let strong_raises = [0,1,1,2,2,3,3,4,4,5];
-
-on("change:class, change:level sheet:opened", function () {
-    getAttrs(["class", "level"], function(values) {
-        console.log("class: ");
-        console.log(values);
-        let hit_dice = strong_hit_dice[values.level-1];
-        let attack_value = strong_attack_value[values.level-1];
-        let saving_throw = strong_saving_throw[values.level-1];
-        let slots = strong_slots[values.level-1];
-        let groups = strong_groups[values.level-1];
-        let raises = strong_raises[values.level-1];
-        setAttrs({
-            hit_dice: hit_dice,
-            attack_value: attack_value,
-            saving_throw: saving_throw,
-            slots: slots,
-            groups: groups,
-            raises: raises
+    const buttonlist = ["whitehack", "inventory"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
         });
     });
-});
 </script>
+
+<div class="sheet-inventory">
+    inventory go here
+</div>
+
+<div class="sheet-whitehack">
+    <div class="stats">
+        <input class="strength" type="number" name="attr_strength" />
+        <input class="dexterity" type="number" name="attr_dexterity" />
+        <input class="constitution" type="number" name="attr_constitution" />
+        <input class="wisdom" type="number" name="attr_wisdom" />
+        <input class="intellect" type="number" name="attr_intellect" />
+        <input class="charisma" type="number" name="attr_charisma" />
+    
+        <textarea class="strength-text" type="text" name="attr_strength_text"></textarea>
+        <textarea class="dexterity-text" type="text" name="attr_dexterity_text"></textarea>
+        <textarea class="constitution-text" type="text" name="attr_constitution_text"></textarea>
+        <textarea class="wisdom-text" type="text" name="attr_wisdom_text"></textarea>
+        <textarea class="intellect-text" type="text" name="attr_intellect_text"></textarea>
+        <textarea class="charisma-text" type="text" name="attr_charisma_text"></textarea>
+    </div>
+
+    <div class="progression">
+        <select class="class" name="attr_class">
+            <optgroup label="Main">
+                <option value="0" selected="selected">Strong</option>
+                <option value="1">Deft</option>
+                <option value="2">Wise</option>
+            </optgroup>
+            <optgroup label="Rare">
+                <option value="3">Brave</option>
+                <option value="4">Fortunate</option>
+            </optgroup>
+        </select>
+        <select class="level" name="attr_level">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+        <input class="languages" type="text" name="attr_languages" />
+        <input class="experience" type="number" name="attr_experience" />
+    </div>
+
+    <div class="main">
+        <textarea class="identity" name="attr_identity"></textarea>
+        <input class="weapon1" type="text" name="attr_weapon_one" />
+        <input class="weapon2" type="text" name="attr_weapon_two" />
+        <textarea class="special" name="attr_special"></textarea>
+        <input class="row1 col1 label" type="text" name="attr_label_one" />
+        <input class="row1 col2 label" type="text" name="attr_label_two" />
+        <input class="row2 col1 label" type="text" name="attr_label_three" />
+        <input class="row2 col2 label" type="text" name="attr_label_four" />
+        <input class="row1 col1 value" type="number" name="attr_value_one" />
+        <input class="row1 col2 value" type="number" name="attr_value_two" />
+        <input class="row2 col1 value" type="number" name="attr_value_three" />
+        <input class="row2 col2 value" type="number" name="attr_value_four" />
+    </div>
+
+    <div class="secondary">
+        <input class="AV" type="number" name="attr_attack_value"/>
+        <input class="ST" type="number" name="attr_saving_throw"/>
+        <input class="AC" type="number" name="attr_armor_class"/>
+        <input class="HP" type="number" name="attr_hit_points"/>
+        <input class="HP-max" type="number" name="attr_hit_points_max"/>
+        <input class="MV" type="number" name="attr_move"/>
+    </div>
+</div>
