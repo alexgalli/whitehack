@@ -1,5 +1,7 @@
 <div>
     <button type="action" name="act_whitehack" >Character</button>
+
+    <!-- delete this line if you don't want an inventory tab -->
     <button type="action" name="act_inventory" >Inventory</button>
 </div>
 
@@ -17,11 +19,46 @@
 </script>
 
 <div class="sheet-inventory">
-    inventory go here
+    <textarea class="slots row1 col1" name="attr_slot_1_1"></textarea>
+    <textarea class="slots row1 col2" name="attr_slot_1_2"></textarea>
+    <textarea class="slots row1 col3" name="attr_slot_1_3"></textarea>
+    <textarea class="slots row1 col4" name="attr_slot_1_4"></textarea>
+    <textarea class="slots row1 col5" name="attr_slot_1_5"></textarea>
+    <textarea class="slots row1 col6" name="attr_slot_1_6"></textarea>
+    <textarea class="slots row2 col1" name="attr_slot_2_1"></textarea>
+    <textarea class="slots row2 col2" name="attr_slot_2_2"></textarea>
+    <textarea class="slots row2 col3" name="attr_slot_2_3"></textarea>
+    <textarea class="slots row2 col4" name="attr_slot_2_4"></textarea>
+    <textarea class="slots row2 col5" name="attr_slot_2_5"></textarea>
+    <textarea class="slots row2 col6" name="attr_slot_2_6"></textarea>
+    <textarea class="slots row3 col1" name="attr_slot_3_1"></textarea>
+    <textarea class="slots row3 col2" name="attr_slot_3_2"></textarea>
+    <textarea class="slots row3 col3" name="attr_slot_3_3"></textarea>
+    <textarea class="slots row3 col4" name="attr_slot_3_4"></textarea>
+    <textarea class="slots row3 col5" name="attr_slot_3_5"></textarea>
+    <textarea class="slots row3 col6" name="attr_slot_3_6"></textarea>
+    
+    <input class="labels row1 col1" type="text" name="attr_label_1_1" />
+    <input class="labels row1 col2" type="text" name="attr_label_1_2" />
+    <input class="labels row2 col1" type="text" name="attr_label_2_1" />
+    <input class="labels row2 col2" type="text" name="attr_label_2_2" />
+    <input class="labels row3 col1" type="text" name="attr_label_3_1" />
+    <input class="labels row3 col2" type="text" name="attr_label_3_2" />
+    
+    <textarea class="other col1" name="attr_coin"></textarea>
+    <textarea class="other col2" name="attr_home"></textarea>
+
 </div>
 
 <div class="sheet-whitehack">
     <div class="stats">
+        <button class="strength roller" type="roll" value="&{template:default} {{STR @{strength}=[[1d20cs@{strength}cf>@{strength}]]}}" name="roll_Strength"></button>
+        <button class="dexterity roller" type="roll" value="&{template:default} {{DEX @{dexterity}=[[1d20cs@{dexterity}cf>@{dexterity}]]}}" name="roll_Dexterity"></button>
+        <button class="constitution roller" type="roll" value="&{template:default} {{CON @{constitution}=[[1d20cs@{constitution}cf>@{constitution}]]}}" name="roll_Constitution"></button>
+        <button class="wisdom roller" type="roll" value="&{template:default} {{WIS @{wisdom}=[[1d20cs@{wisdom}cf>@{wisdom}]]}}" name="roll_Wisdom"></button>
+        <button class="intellect roller" type="roll" value="&{template:default} {{INT @{intellect}=[[1d20cs@{intellect}cf>@{intellect}]]}}" name="roll_Intellect"></button>
+        <button class="charisma roller" type="roll" value="&{template:default} {{CHA @{charisma}=[[1d20cs@{charisma}cf>@{charisma}]]}}" name="roll_Charisma"></button>
+
         <input class="strength" type="number" name="attr_strength" />
         <input class="dexterity" type="number" name="attr_dexterity" />
         <input class="constitution" type="number" name="attr_constitution" />
@@ -70,17 +107,12 @@
         <input class="weapon1" type="text" name="attr_weapon_one" />
         <input class="weapon2" type="text" name="attr_weapon_two" />
         <textarea class="special" name="attr_special"></textarea>
-        <input class="row1 col1 label" type="text" name="attr_label_one" />
-        <input class="row1 col2 label" type="text" name="attr_label_two" />
-        <input class="row2 col1 label" type="text" name="attr_label_three" />
-        <input class="row2 col2 label" type="text" name="attr_label_four" />
-        <input class="row1 col1 value" type="number" name="attr_value_one" />
-        <input class="row1 col2 value" type="number" name="attr_value_two" />
-        <input class="row2 col1 value" type="number" name="attr_value_three" />
-        <input class="row2 col2 value" type="number" name="attr_value_four" />
     </div>
 
     <div class="secondary">
+        <button class="AV-roll roller" type="roll" value="&{template:default} {{AV @{attack_value}=[[1d20cs@{attack_value}cf>@{attack_value}]]}}" name="roll_AV"></button>
+        <button class="ST-roll roller" type="roll" value="&{template:default} {{ST @{saving_throw}=[[1d20cs@{saving_throw}cf>@{saving_throw}]]}}" name="roll_ST"></button>
+
         <input class="AV" type="number" name="attr_attack_value"/>
         <input class="ST" type="number" name="attr_saving_throw"/>
         <input class="AC" type="number" name="attr_armor_class"/>

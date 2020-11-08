@@ -1,29 +1,6 @@
 .charsheet {
   position: relative;
-}
-
-.sheet-whitehack {
-  position: relative;
-
-  background-image: url(https://raw.githubusercontent.com/alexgalli/whitehack/master/imgs/whitehack-bg.png);
-  background-color: white;
-  background-repeat: no-repeat;
-  background-size: 65%;
-  height: 850px;
-  width: 837px;
-  border: 1px solid black;
-}
-
-/*Configure the tab buttons*/
-.sheet-whitehack,
-.sheet-inventory {
-	display: none;
-}
-
-/* show the selected tab */
-.sheet-tabstoggle[value="whitehack"] ~ div.sheet-whitehack,
-.sheet-tabstoggle[value="inventory"] ~ div.sheet-inventory {
-	display: block;
+  padding-top: 1px !important;
 }
 
 /* INPUTS */
@@ -42,6 +19,88 @@ input[type=number]:not(.sheet-HP) {
   -moz-appearance: textfield;
 }
 
+/*Configure the tab buttons*/
+.sheet-whitehack,
+.sheet-inventory {
+	display: none;
+}
+
+/* show the selected tab */
+.sheet-tabstoggle[value="whitehack"] ~ div.sheet-whitehack,
+.sheet-tabstoggle[value="inventory"] ~ div.sheet-inventory {
+	display: block;
+}
+
+/***** INVENTORY *****/
+
+.sheet-inventory {
+  position: relative;
+
+  background-image: url(https://raw.githubusercontent.com/alexgalli/whitehack/main/imgs/inventory.png);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 850px;
+  width: 825px;
+  border: 1px solid black;
+}
+
+.sheet-inventory textarea.sheet-slots {
+    position: absolute;
+    text-align: center;
+    resize: none;
+    width: 90px;
+    height: 62px;
+}
+
+.sheet-inventory .sheet-slots.sheet-row1 { top: 140px; }
+.sheet-inventory .sheet-slots.sheet-row2 { top: 302px; }
+.sheet-inventory .sheet-slots.sheet-row3 { top: 462px; }
+
+.sheet-inventory .sheet-slots.sheet-col1 { left: 24px; }
+.sheet-inventory .sheet-slots.sheet-col2 { left: 149px; }
+.sheet-inventory .sheet-slots.sheet-col3 { left: 271px; width: 83px; }
+.sheet-inventory .sheet-slots.sheet-col4 { left: 475px; }
+.sheet-inventory .sheet-slots.sheet-col5 { left: 602px; }
+.sheet-inventory .sheet-slots.sheet-col6 { left: 722px; width: 83px; }
+
+.sheet-inventory input.sheet-labels {
+    position: absolute;
+    text-align: center;
+    width: 193px;
+}
+
+.sheet-inventory .sheet-labels.sheet-row1 { top: 238px; }
+.sheet-inventory .sheet-labels.sheet-row2 { top: 397px; }
+.sheet-inventory .sheet-labels.sheet-row3 { top: 556px; }
+
+.sheet-inventory .sheet-labels.sheet-col1 { left: 160px; }
+.sheet-inventory .sheet-labels.sheet-col2 { left: 610px; }
+
+.sheet-inventory textarea.sheet-other {
+    position: absolute;
+    text-align: center;
+    width: 332px;
+    top: 654px;
+    resize: none;
+}
+
+.sheet-inventory .sheet-other.sheet-col1 { left: 24px; }
+.sheet-inventory .sheet-other.sheet-col2 { left: 475px; }
+
+/***** WHITEHACK *****/
+.sheet-whitehack {
+  position: relative;
+
+  background-image: url(https://raw.githubusercontent.com/alexgalli/whitehack/main/imgs/whitehack-b.png);
+  background-color: white;
+  background-repeat: no-repeat;
+  background-size: 65%;
+  height: 825px;
+  width: 837px;
+  border: 1px solid black;
+}
+
 /* MAIN */
 
 .sheet-main {
@@ -58,7 +117,7 @@ input[type=number]:not(.sheet-HP) {
 }
 
 .sheet-identity { top: 0px; height: 50px;}
-.sheet-special { top: 235px; height: 380px; }
+.sheet-special { top: 235px; height: 516px; }
 .sheet-weapon1 { top: 125px; height: 30px; }
 .sheet-weapon2 { top: 167px; height: 30px; }
 
@@ -116,10 +175,14 @@ input.sheet-experience { top: 26px; width: 235px; left: 50px; font-size: 15px; }
 .sheet-stats textarea {
   position: absolute;
   left: 0px;
-  height: 60px;
+  height: 50px;
   width: 260px;
   resize: none;
 }
+
+.sheet-roller { position: absolute; }
+
+.sheet-stats .sheet-roller { left: 115px; }
 
 .sheet-strength { top: 6px; }
 .sheet-dexterity { top: 113px; }
@@ -147,10 +210,14 @@ input.sheet-experience { top: 26px; width: 235px; left: 50px; font-size: 15px; }
     padding: 1px;
     padding-top: 2px;
 }
-.sheet-secondary .sheet-AV { top: 0px; }
-.sheet-secondary .sheet-ST { top: 70px; }
-.sheet-secondary .sheet-AC { top: 140px; }
-.sheet-secondary .sheet-HP { top: 207px; }
-.sheet-secondary .sheet-HP-max { top: 236px; }
-.sheet-secondary .sheet-MV { top: 290px; }
 
+.sheet-secondary .sheet-roller { left: 0px; }
+
+.sheet-secondary .sheet-AV { top: 0px; }
+.sheet-secondary .sheet-AV-roll { top: 30px; }
+.sheet-secondary .sheet-ST { top: 90px; }
+.sheet-secondary .sheet-ST-roll { top: 120px; }
+.sheet-secondary .sheet-AC { top: 180px; }
+.sheet-secondary .sheet-HP { top: 243px; }
+.sheet-secondary .sheet-HP-max { top: 272px; }
+.sheet-secondary .sheet-MV { top: 330px; }
